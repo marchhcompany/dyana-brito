@@ -38,3 +38,24 @@
 .list-disc{list-style-type:disc}
 .pl-5{padding-left:1.25rem}
 .space-y-1>:not(:last-child){margin-bottom:.25rem}
+
+/* === Conversão: topo, como funciona, barra fixa === */
+.dy-hero-sec{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.75rem 1.5rem;border-radius:9999px;border:2px solid rgba(255,255,255,.85);color:#fff;font-weight:700;font-size:.95rem;width:100%;transition:background .2s}
+.dy-hero-sec:hover{background:rgba(255,255,255,.15)}
+@media (min-width:640px){.dy-hero-sec{width:auto}}
+.dy-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1rem;margin-top:1.5rem;font-size:.85rem;font-weight:600;color:#fff}
+.dy-trust li{display:inline-flex;align-items:center;gap:.35rem}
+.dy-trust svg{color:#ffd54f}
+.dy-steps{display:grid;gap:1rem;margin-top:2rem;counter-reset:none}
+@media (min-width:768px){.dy-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}}
+.dy-steps li{position:relative;border:1px solid var(--border);background:var(--card);border-radius:1rem;padding:1.5rem 1.25rem 1.25rem;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.dy-steps h3{margin-top:.75rem;font-weight:800;font-size:1.05rem;color:var(--foreground)}
+.dy-steps p{margin-top:.4rem;font-size:.9rem;color:var(--muted-foreground)}
+.dy-step-n{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:9999px;background:var(--primary);color:var(--primary-foreground);font-weight:800;font-size:1.15rem}
+.dy-sticky{display:none}
+@media (max-width:767px){
+  .dy-float{display:none!important}
+  .dy-sticky{display:flex;align-items:center;justify-content:center;gap:.5rem;left:.75rem;right:.75rem;bottom:.75rem;z-index:50;min-height:52px;border-radius:9999px;background:var(--whatsapp,#25d366);color:#fff;font-weight:800;font-size:1rem;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  body{padding-bottom:76px}
+  .dy-cookie{bottom:5rem!important}
+}

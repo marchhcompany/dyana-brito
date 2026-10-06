@@ -245,11 +245,15 @@
       var zap = $('#orcamento-whatsapp').value.trim();
       var serv = $('#orcamento-servico').value;
       var msg = $('#orcamento-mensagem').value.trim();
+      var data = ($('#orcamento-data') || {}).value || '';
+      var bairro = (($('#orcamento-bairro') || {}).value || '').trim();
       var erro = $('#orcamento-erro');
       var falta = !nome ? 'seu nome' : zap.replace(/\D/g, '').length < 10 ? 'um WhatsApp válido com DDD' : !serv ? 'o tipo de serviço' : '';
       if (falta) { erro.textContent = 'Por favor, informe ' + falta + '.'; erro.hidden = false; return; }
       erro.hidden = true;
       var linhas = ['Olá! Vim pelo site da Dyana Brito Festas e gostaria de solicitar um orçamento.', '', '*Nome:* ' + nome, '*WhatsApp para retorno:* ' + zap, '*Tipo de Serviço:* ' + serv];
+      if (data) linhas.push('*Data da festa:* ' + data.split('-').reverse().join('/'));
+      if (bairro) linhas.push('*Bairro/cidade:* ' + bairro);
       if (msg) linhas.push('', '*Detalhes:* ' + msg);
       track('clique_whatsapp', { secao: 'orcamento', servico: serv });
       track('generate_lead', { servico: serv });
@@ -257,14 +261,23 @@
     });
   }
 
+  /* ---------- Barra fixa do celular: some quando o formulário está na tela ---------- */
+  var sticky = $('.dy-sticky'), orc = $('#orcamento');
+  function toggleSticky() {
+    var r = orc.getBoundingClientRect();
+    sticky.style.display = (r.top < window.innerHeight * 0.85 && r.bottom > 80) ? 'none' : '';
+  }
+  if (sticky && orc) { window.addEventListener('scroll', toggleSticky, { passive: true }); toggleSticky(); }
+
   /* ---------- Métricas de clique ---------- */
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href]'); if (!a) return;
     var href = a.getAttribute('href');
     var sec = a.closest('section[id], footer[id]');
-    var secao = a.classList.contains('fixed') ? 'botao_flutuante' : a.closest('header') ? 'cabecalho' : sec ? sec.id : 'pagina';
+    var secao = a.classList.contains('dy-sticky') ? 'barra_fixa_celular' : a.classList.contains('dy-float') ? 'botao_flutuante' : a.closest('header') ? 'cabecalho' : sec ? sec.id : 'pagina';
     var card = a.closest('article'); var item = card ? ($('h3', card) || {}).textContent : undefined;
-    if (href.indexOf('wa.me') > -1) track('clique_whatsapp', { secao: secao, item: item });
+    var cta = (a.textContent || '').trim().slice(0, 60);
+    if (href.indexOf('wa.me') > -1) track('clique_whatsapp', { secao: secao, item: item, botao: cta });
     else if (href.indexOf('tel:') === 0) track('clique_telefone', { secao: secao });
     else if (href.indexOf('instagram.com') > -1) track('clique_instagram', { secao: secao });
   });
@@ -275,7 +288,7 @@
   if (!getConsent()) {
     var bar = document.createElement('div');
     bar.setAttribute('role', 'dialog'); bar.setAttribute('aria-live', 'polite'); bar.setAttribute('aria-label', 'Aviso de cookies');
-    bar.className = 'fixed inset-x-3 bottom-3 z-[55] mx-auto max-w-xl rounded-2xl border border-border bg-card p-4 shadow-[var(--shadow-festive)] sm:inset-x-6 sm:bottom-6';
+    bar.className = 'dy-cookie fixed inset-x-3 bottom-3 z-[55] mx-auto max-w-xl rounded-2xl border border-border bg-card p-4 shadow-[var(--shadow-festive)] sm:inset-x-6 sm:bottom-6';
     bar.innerHTML = '<p class="text-sm text-foreground">Usamos cookies apenas para entender quantas pessoas visitam o site e melhorar o atendimento. Nenhum dado pessoal é vendido ou compartilhado. <a href="/privacidade.html" class="font-semibold text-primary underline">Política de Privacidade</a></p>' +
       '<div class="mt-3 flex flex-wrap justify-end gap-2"><button type="button" data-c="recusado" class="dy-btn-44 rounded-full border border-border px-4 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-muted">Recusar</button>' +
       '<button type="button" data-c="aceito" class="dy-btn-44 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground transition-transform hover:scale-[1.03]">Aceitar</button></div>';
