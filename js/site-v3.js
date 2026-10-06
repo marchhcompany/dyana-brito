@@ -262,12 +262,14 @@
   }
 
   /* ---------- Barra fixa do celular: some quando o formulário está na tela ---------- */
-  var sticky = $('.dy-sticky'), orc = $('#orcamento');
+  var sticky = $('.dy-sticky'), orc = $('#orcamento'), topo = $('#inicio');
   function toggleSticky() {
-    var r = orc.getBoundingClientRect();
-    sticky.style.display = (r.top < window.innerHeight * 0.85 && r.bottom > 80) ? 'none' : '';
+    var noTopo = topo && topo.getBoundingClientRect().bottom > 0;
+    var r = orc && orc.getBoundingClientRect();
+    var noForm = r && r.top < window.innerHeight * 0.85 && r.bottom > 80;
+    sticky.classList.toggle('dy-on', !(noTopo || noForm));
   }
-  if (sticky && orc) { window.addEventListener('scroll', toggleSticky, { passive: true }); toggleSticky(); }
+  if (sticky) { window.addEventListener('scroll', toggleSticky, { passive: true }); toggleSticky(); }
 
   /* ---------- Métricas de clique ---------- */
   document.addEventListener('click', function (e) {
