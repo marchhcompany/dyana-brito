@@ -59,3 +59,5 @@
   body{padding-bottom:76px}
   .dy-cookie{bottom:5rem!important}
 }
+.min-h-\[44px\]{min-height:44px}
+@media (min-width:768px){.md\:py-16{padding-block:4rem}}
