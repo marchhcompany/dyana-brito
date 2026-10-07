@@ -77,7 +77,7 @@
   /* ---------- Galeria ---------- */
   var FOTOS = [
     ['decoracao-5', 'decoracao', 'Decoração de festa tema futebol com balões verdes e brancos'],
-    ['gladiador-1', 'inflaveis', 'Inflável gladiador vermelho e azul montado ao ar livre'],
+    ['gladiador-1', 'inflaveis', 'Guerra de cotonete inflável vermelha e azul montada ao ar livre'],
     ['cama-elastica-1', 'infantil', 'Cama elástica com rede de proteção montada em quintal'],
     ['aero-hockey-1', 'jogos', 'Mesa de aero hockey com LED azul'],
     ['decoracao-9', 'decoracao', 'Decoração de festa tema Frozen com balões azuis e lilás'],
@@ -100,7 +100,7 @@
     ['toto-1', 'jogos', 'Mesa de totó de madeira'],
     ['decoracao-10', 'decoracao', 'Decoração de festa tema Branca de Neve'],
     ['futebol-mesa-1', 'jogos', 'Mesa de futebol de palheta de madeira'],
-    ['gladiador-2', 'inflaveis', 'Inflável gladiador montado em área externa'],
+    ['gladiador-2', 'inflaveis', 'Guerra de cotonete inflável montada em área externa'],
     ['decoracao-11', 'decoracao', 'Decoração de chá de bebê azul com cubos BABY e ursinho'],
     ['cama-elastica-2', 'infantil', 'Cama elástica montada em quadra'],
     ['decoracao-12', 'decoracao', 'Decoração de festa tema fundo do mar'],
@@ -112,21 +112,21 @@
     ['decoracao-15', 'decoracao', 'Decoração de chá de bebê tema safári'],
     ['toto-2', 'jogos', 'Totó de madeira em salão'],
     ['decoracao-16', 'decoracao', 'Decoração de festa tema Carros'],
-    ['gladiador-3', 'inflaveis', 'Inflável gladiador montado em jardim'],
+    ['gladiador-3', 'inflaveis', 'Guerra de cotonete inflável montada em jardim'],
     ['cama-elastica-4', 'infantil', 'Cama elástica com rede colorida'],
     ['toboga-2', 'inflaveis', 'Tobogã inflável gigante montado ao ar livre'],
-    ['castelo-3', 'inflaveis', 'Castelinho inflável com piscina de bolinhas e escorregador'],
+    ['castelo-3', 'inflaveis', 'Mini tobogã inflável com piscina de bolinhas e escorregador'],
     ['multpark-2', 'inflaveis', 'Brinquedo inflável Mult Park montado em quintal'],
     ['circuito-2', 'inflaveis', 'Mini circuito inflável com escorregador em área arborizada'],
     ['espuma-2', 'inflaveis', 'Crianças se divertindo na piscina de espuma'],
     ['espuma-1', 'inflaveis', 'Canhão de espuma enchendo piscina inflável'],
     ['toboga-3', 'inflaveis', 'Tobogã inflável montado no gramado'],
-    ['castelo-1', 'inflaveis', 'Castelinho inflável com escorregador e parede de escalada'],
+    ['castelo-1', 'inflaveis', 'Mini tobogã inflável em formato de castelo com escorregador'],
     ['multpark-1', 'inflaveis', 'Mult Park inflável com obstáculos e escorregador'],
     ['circuito-3', 'inflaveis', 'Mini circuito inflável montado no gramado'],
     ['sabao-1', 'inflaveis', 'Crianças brincando no futebol de sabão inflável'],
     ['toboga-1', 'inflaveis', 'Tobogã inflável com escada e escorregador'],
-    ['castelo-2', 'inflaveis', 'Castelinho inflável com bolinhas coloridas'],
+    ['castelo-2', 'inflaveis', 'Mini tobogã inflável com bolinhas coloridas'],
     ['circuito-1', 'inflaveis', 'Mini circuito inflável vermelho e roxo em salão de festas'],
     ['toboga-4', 'inflaveis', 'Lateral do tobogã inflável com parede de escalada']
   ];
@@ -210,7 +210,7 @@
 
   /* ---------- Vídeos ---------- */
   var VIDEOS = [
-    [5, 'Inflável Gladiador'], [2, 'Mult Park'], [6, 'Aero Hockey com LED'], [4, 'Mini Circuito'],
+    [5, 'Guerra de Cotonete'], [2, 'Mult Park'], [6, 'Aero Hockey com LED'], [4, 'Mini Circuito'],
     [3, 'Circuito de Obstáculos'], [1, 'Diversão ao Ar Livre'], [7, 'Futebol de Mesa'], [8, 'Piscina de Bolinhas']
   ];
   var vidGrid = $('#galeria [data-videos]');
